@@ -1,0 +1,42 @@
+# Project Breakdown Bot Configuration
+# Run 'project-breakdown init' to generate this file
+
+anthropic:
+  api_key: "your-anthropic-api-key-here"
+  model: "claude-sonnet-4-20250514"
+  timeout_seconds: 120           # API request timeout
+  max_tokens: 4000              # Maximum tokens per request
+  chunk_size_chars: 15000       # Size for splitting large files
+  retry_count: 3                # Number of retries for failed requests
+  retry_delay_seconds: 5        # Delay between retries
+
+jira:
+  base_url: "https://your-domain.atlassian.net"
+  username: "your-email@example.com"
+  api_token: "your-jira-api-token"
+  project_key: "PROJ"
+  timeout_seconds: 30           # JIRA API request timeout
+
+processing:
+  mode: "full"                  # Options: "full", "analyze-only", "create-only"
+  output_dir: "./output"        # Directory for saving analysis files
+  save_intermediate: true       # Save intermediate chunk results
+
+# Processing Modes:
+# - full: Analyze with AI and create JIRA tickets (default)
+# - analyze-only: Only analyze and save results, don't create JIRA tickets
+# - create-only: Use with 'create-from-analysis' command for saved analysis
+
+# How to get your API keys:
+#
+# Anthropic API Key:
+# 1. Go to https://console.anthropic.com/
+# 2. Create an account or sign in
+# 3. Navigate to API Keys section
+# 4. Generate a new API key
+#
+# JIRA API Token:
+# 1. Go to https://id.atlassian.com/manage-profile/security/api-tokens
+# 2. Create API token
+# 3. Use your Atlassian email as username
+# 4. Use the generated token as api_token
